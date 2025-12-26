@@ -137,9 +137,11 @@ class Hpl(AutotoolsPackage):
             if self.spec.satisfies("%aocc@4:"):
                 ldflags.append("-lamdalloc")
 
-        if self.spec["blas"].name == "fujitsu-ssl2" and (
-            self.spec.satisfies("%fj") or self.spec.satisfies("%clang@17:")
-        ):
+       #SBA: In the context of benchpark, fujitsu-ssl2 is only loaded for fj and clang compilers
+       # if self.spec["blas"].name == "fujitsu-ssl2" and (
+       #     self.spec.satisfies("%fj") or self.spec.satisfies("%clang@17:")
+       # ):
+        if self.spec["blas"].name == "fujitsu-ssl2":
             cflags.append("-SSL2BLAMP")
             ldflags.append("-SSL2BLAMP")
 

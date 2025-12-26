@@ -59,12 +59,13 @@ class FujitsuSsl2(Package):
     provides("lapack")
     provides("scalapack")
 
-    requires(
-        "%fj",
-        "%clang@17:",
-        policy="one_of",
-        msg="currently only supports Fujitsu or Clang compilers",
-    )
+#SBA: In the context of benchpark, fujitsu-ssl2 is only loaded for fj and clang compilers
+#    requires(
+#        "%fj",
+#        "%clang@17:",
+#        policy="one_of",
+#        msg="currently only supports Fujitsu or Clang compilers",
+#    )
     
     def install(self, spec, prefix):
         raise InstallError(

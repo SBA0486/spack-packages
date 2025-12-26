@@ -14,13 +14,15 @@ class FujitsuMpi(Package):
     homepage = "https://www.fujitsu.com/us/"
 
     provides("mpi@3.1:")
-    requires(
-        "%fj@4:",
-        "%clang@11:",
-        "%gcc@8:",
-        policy="one_of",
-        msg="currently only supports Fujitsu, Clang, or GCC compilers",
-    )
+
+#SBA: In the context of benchpark, fujitsu-ssl2 i only loaded for fj and clang compilers
+#    requires(
+#        "%fj@4:",
+#        "%clang@11:",
+#        "%gcc@8:",
+#        policy="one_of",
+#        msg="currently only supports Fujitsu, Clang, or GCC compilers",
+#    )
 
     def install(self, spec, prefix):
         raise InstallError("Fujitsu MPI is not installable; it is vendor supplied")
